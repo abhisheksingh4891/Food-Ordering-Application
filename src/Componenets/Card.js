@@ -23,17 +23,23 @@ const Card = () => {
             <div className="card-body">
               <h5 className="card-title">{foodItem.name}</h5>
               <p className="card-text">{foodItem.description}</p>
-              <div className="container w-100">
-              <button className="m-2 p-2 bg-success text-white rounded border-0">Add to cart</button>
-                <select className="m-2 p-2 bg-success text-white rounded">
-                  {Array.from(Array(4), (_, i) => (
-                    <option key={i + 1} value={i + 1}> {i + 1} </option>
-                  ))}
-                </select>
-                <select className="m-2 p-2 bg-success text-white rounded">
-                  <option value={foodItem.options.full}>Full</option>
-                  <option value={foodItem.options.half}>Half</option>
-                </select>
+              <div className="container w-100 d-flex justify-content-between p-1">
+                <div>
+                  <button className="m-2 p-2 bg-success text-white rounded border-0">Add to cart</button>
+                </div>
+                <div>
+                  <select className="m-2 p-2 bg-success text-white rounded">
+                    {Array.from(Array(4), (_, i) => (
+                      <option key={i + 1} value={i + 1}> {i + 1} </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <select className="m-2 p-2 bg-success text-white rounded">
+                    <option value={foodItem.options.full}>Full</option>
+                    <option value={foodItem.options.half}>Half</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>

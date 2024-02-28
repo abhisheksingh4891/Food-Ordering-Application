@@ -1,6 +1,6 @@
 import React from "react";
 import car1 from '../Assets/car3.jpg'
-import car2 from '../Assets/car6.jpg'
+// import car2 from '../Assets/car6.jpg'
 import car3 from '../Assets/car1.jpg'
 import car4 from '../Assets/car2.jpg'
 
@@ -8,7 +8,7 @@ const Carousel = () => {
     const imgstyle = {
         maxHeight: '550px',
         objectPosition:'center',
-        objectFit: 'contain',
+        objectFit: 'cover',
         filter: 'brightness(30%)'
     }
   return (
@@ -23,9 +23,9 @@ const Carousel = () => {
         <div className="carousel-item active">
           <img src={car1} className="d-block w-100" alt="..." style={imgstyle}/>
         </div>
-        <div className="carousel-item">
+        {/* <div className="carousel-item">
           <img src={car2} className="d-block w-100" alt="..." style={imgstyle}/>
-        </div>
+        </div> */}
         <div className="carousel-item">
           <img src={car4} className="d-block w-100" alt="..." style={imgstyle}/>
         </div>

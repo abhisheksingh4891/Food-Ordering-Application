@@ -21,12 +21,12 @@ const Navbar = () => {
             <li><Link className='nav-link active fw-bold dropdown-item bg-danger text-white' to="/">Burger</Link></li>
             <li><Link className='nav-link active fw-bold dropdown-item bg-danger text-white' to="/">Cake</Link></li>
           </ul>
-          <li className="nav-item">
-            <Link className="nav-link active fw-bold" to="/login">Login</Link>
-          </li>
         </div>
       </ul>
         <ul className="navbar-nav">
+          <li className="nav-item">
+            <Link className="nav-link active fw-bold" to="/login">Login</Link>
+          </li>
       </ul>
     </div>
   </div>
