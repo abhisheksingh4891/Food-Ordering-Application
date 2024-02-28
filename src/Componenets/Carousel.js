@@ -8,7 +8,7 @@ const Carousel = () => {
     const imgstyle = {
         maxHeight: '550px',
         objectPosition:'center',
-        objectFit: 'cover',
+        objectFit: 'contain',
         filter: 'brightness(30%)'
     }
   return (

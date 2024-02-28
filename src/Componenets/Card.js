@@ -1,60 +1,45 @@
 import React, { useState, useEffect } from "react";
-import axios from 'axios'
+import axios from 'axios';
 
-const baseURL = "http://localhost:5000/data";
+const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const Card = () => {
-
-  const [ Food, setFood] = useState([]);
+  const [food, setFood] = useState([]);
 
   useEffect(() => {
-    axios.get(baseURL)
+    axios.get(`${baseURL}/data`)
       .then((response) => {
-        console.log(response.data);
         setFood(response.data);
       })
       .catch(error => console.error(error));
   }, []);
-  
 
   return (  
-    <>
-    {
-      Food.map(food =>{
-        return (
-        <div className="card m-3" style={{"width": "18rem", "maxHeight":"400px"}}>
-        <img src={food.img} className="card-img-top" alt="Bhel Puri" style={{"height":"200px", "objectFit":"cover","filter":"brightness(80%)"}}/>
-      <div className="card-body">
-        <h5 className="card-title">{food.name}</h5>
-        <p className="card-text">
-          {food.description}
-        </p>
-        <div className="container w-100">
-            <button className="m-2 h-100 bg-success text-white rounded">Add to cart</button>
-
-            <select className="m-2 h-100 bg-success text-white rounded">
-                {
-                    Array.from(Array(4),(e, i)=>{
-                        return (
-                            <option key={i+1} value={i+1}> {i+1} </option>
-                        )
-                    })
-                }
-            </select>
-
-            <select class="m-2 h-100 bg-success text-white rounded">
-                {/* <option selected>Choose Quantity</option> */}
-                <option value={food.options.full}>Full</option>
-                <option value={food.options.half}>Half</option>
-                {/* <option value="qtr">Qtr</option> */}
-            </select> 
+    <div className="row">
+      {food.map((foodItem, index) => (
+        <div key={index} className="col-md-3">
+          <div className="card mt-5 mx-2" style={{ "maxHeight": "400px" }}>
+            <img src={foodItem.img} className="card-img-top" alt="Bhel Puri" style={{ "height": "200px", "objectFit": "cover", "filter": "brightness(80%)" }} />
+            <div className="card-body">
+              <h5 className="card-title">{foodItem.name}</h5>
+              <p className="card-text">{foodItem.description}</p>
+              <div className="container w-100">
+              <button className="m-2 p-2 bg-success text-white rounded border-0">Add to cart</button>
+                <select className="m-2 p-2 bg-success text-white rounded">
+                  {Array.from(Array(4), (_, i) => (
+                    <option key={i + 1} value={i + 1}> {i + 1} </option>
+                  ))}
+                </select>
+                <select className="m-2 p-2 bg-success text-white rounded">
+                  <option value={foodItem.options.full}>Full</option>
+                  <option value={foodItem.options.half}>Half</option>
+                </select>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
-        )
-      })
-    }
-  </>
+      ))}
+    </div>
   );
 };
 
