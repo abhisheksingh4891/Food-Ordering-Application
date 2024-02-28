@@ -1,15 +1,33 @@
-import React from "react";
-import card1 from "../Assets/card1.jpg"
+import React, { useState, useEffect } from "react";
+import axios from 'axios'
+
+const baseURL = "http://localhost:5000/data";
 
 const Card = () => {
-  return (
-    <div className="card m-3" style={{"width": "18rem", "maxHeight":"400px"}}>
-      <img src={card1} className="card-img-top" alt="Bhel Puri" style={{"height":"200px", "objectFit":"cover","filter":"brightness(80%)"}}/>
+
+  const [ Food, setFood] = useState([]);
+
+  useEffect(() => {
+    axios.get(baseURL)
+      .then((response) => {
+        console.log(response.data);
+        setFood(response.data);
+      })
+      .catch(error => console.error(error));
+  }, []);
+  
+
+  return (  
+    <>
+    {
+      Food.map(food =>{
+        return (
+        <div className="card m-3" style={{"width": "18rem", "maxHeight":"400px"}}>
+        <img src={food.img} className="card-img-top" alt="Bhel Puri" style={{"height":"200px", "objectFit":"cover","filter":"brightness(80%)"}}/>
       <div className="card-body">
-        <h5 className="card-title">Card title</h5>
+        <h5 className="card-title">{food.name}</h5>
         <p className="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          {food.description}
         </p>
         <div className="container w-100">
             <button className="m-2 h-100 bg-success text-white rounded">Add to cart</button>
@@ -26,13 +44,17 @@ const Card = () => {
 
             <select class="m-2 h-100 bg-success text-white rounded">
                 {/* <option selected>Choose Quantity</option> */}
-                <option value="full">Full</option>
-                <option value="half">Half</option>
-                <option value="qtr">Qtr</option>
+                <option value={food.options.full}>Full</option>
+                <option value={food.options.half}>Half</option>
+                {/* <option value="qtr">Qtr</option> */}
             </select> 
         </div>
       </div>
-    </div>
+      </div>
+        )
+      })
+    }
+  </>
   );
 };
 
