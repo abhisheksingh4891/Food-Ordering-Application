@@ -34,16 +34,20 @@ const Login = () => {
                     <label className="form-label text-black fw-bold" for="form2Example27">Password</label>
                     <input type="password" id="form2Example27" className="form-control form-control-lg" />
                   </div>
+                  <div className="d-flex gap-2 mb-2">
+                  <input type="checkbox" />
+                  <a href="#!" className="small text-black text-decoration-none text-dark fw-bold">I agree for Terms and Conditions</a>
+                  </div> 
 
                   <div className="pt-2 mb-4">
                     <button className="btn btn-dark btn-lg btn-block" type="button">Login</button>
                   </div>
 
-                  <a className="small text-black" href="#!">Forgot password?</a>
-                  <p className="mb-5 pb-lg-2 text-black" style={{"color": "#393f81;"}}>Don't have an account? <Link to="/register"
+                  <a className="text-black" href="#!">Forgot password?</a>
+                  <p className="mb-2 text-black" style={{"color": "#393f81;"}}>Don't have an account? <Link to="/register"
                       className="" style={{"color": "#393f81;"}}>Register here</Link></p>
-                  <a href="#!" className="small text-black">Terms of use.</a>
-                  <a href="#!" className="small text-black">Privacy policy</a>
+
+                  <Link className="text-black" to="/">Return to Home</Link>
                 </form>
               </div>
             </div>

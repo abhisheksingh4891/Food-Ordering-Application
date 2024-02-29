@@ -11,9 +11,9 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link active fw-bold" aria-current="page" to="/">Home</Link>
-            </li>
+            </li> */}
             <li className='nav-item dropdown'>
               <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</Link>
               <ul className="dropdown-menu bg-danger mt-1" aria-labelledby="navbarDropdown">
