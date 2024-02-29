@@ -16,7 +16,7 @@ const Card = () => {
       .catch(error => console.error(error));
   }, []);
   return (  
-    <div className="row">
+    <div className="row bg-light">
       {food.map((foodItem) => (
         <div className="col-md-3">
           <div className="card my-2 mx-2 " style={{ "maxHeight": "400px" }}>
