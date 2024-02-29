@@ -1,5 +1,4 @@
 import React from 'react';
-import login from '../Assets/login.jpg'
 import { Link } from 'react-router-dom';
 
 const Login = () => {
@@ -46,7 +45,6 @@ const Login = () => {
                   <a href="#!" className="small text-black">Terms of use.</a>
                   <a href="#!" className="small text-black">Privacy policy</a>
                 </form>
-
               </div>
             </div>
           </div>
