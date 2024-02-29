@@ -18,7 +18,7 @@ const Card = () => {
   return (  
     <div className="row bg-light">
       {food.map((foodItem) => (
-        <div className="col-md-3">
+        <div className="col-md-3 bg-light">
           <div className="card my-2 mx-2 " style={{ "maxHeight": "400px" }}>
             <img src={foodItem.img} className="card-img-top" alt="Bhel Puri" style={{ "height": "200px", "objectFit": "cover", "filter": "brightness(80%)" }} />
             <div className="card-body">
