@@ -1,0 +1,7 @@
+.card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card.active {
+    transform: translateY(-10px);
+  }

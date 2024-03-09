@@ -1,25 +1,43 @@
 import axios from 'axios';
-import {React, useState} from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FoodContext } from '../Context/FoodContext';
+import SuccessModal from './SuccessModal';
+import WrongModal from './WrongModal';
+
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const Login = () => {
-
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showSuccessModal, setShowSuccessModal] = useState(false); 
+  const [showWrongModal, setShowWrongModal] = useState(false);
+  const { setIsLogin, isLogin } = useContext(FoodContext);
 
-  const Submit = (e)=> {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${baseURL}/login`,{email, password})
-    .then(result => {
-      console.log(result)
-      if(result.data === "Login Succesfull..."){
-        navigate('/')
-      }
-    })
-    .catch(err => console.log(err))
-  }
+    axios.post(`${baseURL}/login`, { email, password })
+      .then(result => {
+        console.log(result);
+        if(result.data === "Password is incorrect...") {
+          setShowWrongModal(true); 
+          setTimeout(() => {
+            setShowWrongModal(false); 
+          }, 1500)
+        }
+        else{
+          setIsLogin(true);
+          setShowSuccessModal(true); 
+          setTimeout(() => {
+            setShowSuccessModal(false); 
+            navigate('/');
+          }, 1500)
+        } 
+      })
+      .catch(err => console.log(err));
+  };
+
 
   return (
 
@@ -31,7 +49,7 @@ const Login = () => {
               <div className="col-md-6 col-lg-10 d-flex align-items-center">
                 <div className="card-body p-4 p-lg-5 text-black">
 
-                  <form onSubmit={Submit}>
+                  <form onSubmit={handleSubmit} style={{height:'70vh'}}>
 
                     <div className="d-flex align-items-center mb-3 pb-1 text-black">
                       <i className="fas fa-cubes fa-2x me-3" style={{"color": "#ff6219"}}></i>
@@ -58,7 +76,7 @@ const Login = () => {
                       <button className="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                     </div>
 
-                    <p className="text-black" style={{"color": "blue"}}>Forgot password?</p>
+                    {/* <p className="text-black" style={{"color": "blue"}}>Forgot password?</p> */}
                     <p className="mb-2 text-black" style={{"color": "blue"}}>Don't have an account? <Link to="/register"
                         className="" style={{"color": "blue"}}>Register here</Link></p>
 
@@ -70,6 +88,11 @@ const Login = () => {
           </div>
         </div>
       </div>
+      {
+        isLogin ? (<SuccessModal show={showSuccessModal} />):(<WrongModal show={showWrongModal} />)
+      }
+      
+      
     </div>
 
   );

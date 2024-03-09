@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FoodContext } from '../Context/FoodContext';
+import LogoutModal from './LogoutModal';
 
 const Navbar = () => {
+  const { isLogin, setIsLogin } = useContext(FoodContext);
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // State to control LogoutModal visibility
+
+  const handleLogout = () => {
+    setIsLogin(false);
+    setShowLogoutModal(true); // Show the LogoutModal when logging out
+    setTimeout(() => {
+      setShowLogoutModal(false); 
+    }, 800);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0" style={{"filter":"brightness(50%)",'position': 'relative', 'zIndex': '999'}} >
       <div className="container-fluid">
@@ -23,13 +36,18 @@ const Navbar = () => {
               </ul>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active fw-bold" to="/login">Login</Link>
+              {isLogin ? (
+                <Link className="nav-link active fw-bold" to="/login" onClick={handleLogout}>Logout</Link>
+              ) : (
+                <Link className="nav-link active fw-bold" to="/login">Login</Link>
+              )}
             </li>
           </ul>
         </div>
       </div>
+      <LogoutModal show={showLogoutModal} /> {/* Render LogoutModal component */}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
