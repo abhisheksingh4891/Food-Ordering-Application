@@ -37,7 +37,7 @@ const Register = () => {
 
   return (
     <div className="container-fluid py-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
-    <div className="row d-flex justify-content-center align-items-center mt-4">
+    <div className="row d-flex justify-content-center align-items-center mt-5">
       <div className="col col-xl-7">
         <div className="card" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
           <div className="row g-0">
