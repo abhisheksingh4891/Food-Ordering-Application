@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0 fixed-top " style={{ "filter": "brightness(70%)" }}>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0 fixed-top pb-1" style={{ "filter": "brightness(70%)"}}>
       <div className="container-fluid">
         <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/">Foobies</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

@@ -50,7 +50,7 @@ const Card = () => {
             <div className="d-block d-md-none mt-3">
                 <form className="d-flex mt-4 mx-5 mb-0">
                     <input
-                        className="form-control me-1 text-black bg-white"
+                        className="form-control me-2 text-black bg-white"
                         type="search"
                         placeholder="Search"
                         aria-label="Search"
@@ -71,11 +71,11 @@ const Card = () => {
                                 <p className="card-text">{foodItem.description}</p>
                                 <div className="container d-flex justify-content-around gap-2">
                                     <div>
-                                        <button className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>Add to cart</button>
+                                        <button className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>Add to cart</button>
                                         {/* <button className="col btn btn-dark-moon btn-rounded">Dark Moon</button> */}
                                     </div>
                                     <div>
-                                        <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>
+                                        <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>
                                                 <option>0</option>
                                                 {Array.from(Array(4), (_, i) => (
                                                     <option key={i + 1} value={i + 1}> {i + 1} </option>
@@ -84,7 +84,7 @@ const Card = () => {
                                     </div>
                                     <div>
                                         {/* <button className="btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}> */}
-                                            <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>
+                                            <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>
                                                 <option>Quantity</option>
                                                 <option value={foodItem.options.full}>Full</option>
                                                 <option value={foodItem.options.half}>Half</option>
