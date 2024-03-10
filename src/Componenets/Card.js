@@ -71,20 +71,25 @@ const Card = () => {
                                 <p className="card-text">{foodItem.description}</p>
                                 <div className="container d-flex justify-content-around gap-2">
                                     <div>
-                                        <button className="btn btn-dark" style={{ "filter": "brightness(70%)" }}>Add to cart</button>
+                                        <button className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>Add to cart</button>
+                                        {/* <button className="col btn btn-dark-moon btn-rounded">Dark Moon</button> */}
                                     </div>
                                     <div>
-                                        <select className="btn btn-dark" style={{ "filter": "brightness(70%)" }}>
-                                            {Array.from(Array(4), (_, i) => (
-                                                <option key={i + 1} value={i + 1}> {i + 1} </option>
-                                            ))}
-                                        </select>
+                                        <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>
+                                                <option>0</option>
+                                                {Array.from(Array(4), (_, i) => (
+                                                    <option key={i + 1} value={i + 1}> {i + 1} </option>
+                                                ))}
+                                            </select>
                                     </div>
                                     <div>
-                                        <select className="btn btn-dark" style={{ "filter": "brightness(70%)" }}>
-                                            <option value={foodItem.options.full}>Full</option>
-                                            <option value={foodItem.options.half}>Half</option>
-                                        </select>
+                                        {/* <button className="btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}> */}
+                                            <select className="btn btn-dark p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px' }}>
+                                                <option>Quantity</option>
+                                                <option value={foodItem.options.full}>Full</option>
+                                                <option value={foodItem.options.half}>Half</option>
+                                            </select>
+                                        {/* </button> */}
                                     </div>
                                 </div>
                             </div>
@@ -97,3 +102,4 @@ const Card = () => {
 };
 
 export default Card;
+

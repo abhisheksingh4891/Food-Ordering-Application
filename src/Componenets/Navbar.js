@@ -1,22 +1,22 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FoodContext } from '../Context/FoodContext';
-import LogoutModal from './LogoutModal';
+import LogoutModal from './Modal/LogoutModal';
 
 const Navbar = () => {
   const { isLogin, setIsLogin } = useContext(FoodContext);
-  const [showLogoutModal, setShowLogoutModal] = useState(false); // State to control LogoutModal visibility
+  const [showLogoutModal, setShowLogoutModal] = useState(false); 
 
   const handleLogout = () => {
     setIsLogin(false);
-    setShowLogoutModal(true); // Show the LogoutModal when logging out
+    setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
     }, 800);
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0" style={{"filter":"brightness(50%)",'position': 'relative', 'zIndex': '999'}} >
+    <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0 fixed-top " style={{ "filter": "brightness(70%)" }}>
       <div className="container-fluid">
         <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/">Foobies</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ const Navbar = () => {
             </li> */}
             <li className='nav-item dropdown'>
               <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</Link>
-              <ul className="dropdown-menu bg-danger mt-1" aria-labelledby="navbarDropdown">
+              <ul className="dropdown-menu bg-danger mt-1 border-0" aria-labelledby="navbarDropdown">
                 <li><Link className='nav-link active fw-bold dropdown-item bg-danger text-white' to="/">Pizza</Link></li>
                 <li><Link className='nav-link active fw-bold dropdown-item bg-danger text-white' to="/">Burger</Link></li>
                 <li><Link className='nav-link active fw-bold dropdown-item bg-danger text-white' to="/">Cake</Link></li>
@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               {isLogin ? (
-                <Link className="nav-link active fw-bold" to="/login" onClick={handleLogout}>Logout</Link>
+                <Link className="nav-link active fw-bold" to="/" onClick={handleLogout}>Logout</Link>
               ) : (
                 <Link className="nav-link active fw-bold" to="/login">Login</Link>
               )}
@@ -45,7 +45,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <LogoutModal show={showLogoutModal} /> {/* Render LogoutModal component */}
+      <LogoutModal show={showLogoutModal} /> 
     </nav>
   );
 };

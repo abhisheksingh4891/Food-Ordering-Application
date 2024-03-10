@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../Context/FoodContext';
-import SuccessModal from './SuccessModal';
-import WrongModal from './WrongModal';
+import SuccessModal from './Modal/SuccessModal';
+import WrongModal from './Modal/WrongModal';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
 
-    <div className="container-fluid py-2" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
+    <div className="container-fluid py-2 mt-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
       <div className="row d-flex justify-content-center align-items-center">
         <div className="col col-xl-5">
           <div className="card" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>

@@ -1,6 +1,9 @@
 import axios from 'axios';
 import {React, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import RegisterSuccessModal from './Modal/RegisterSuccessModal';
+// import WrongModal from './WrongModal';
+
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const Register = () => {
@@ -14,19 +17,26 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const [showSuccessModal, setShowSuccessModal] = useState(false); 
+  // const [showWrongModal, setShowWrongModal] = useState(false);
+
   const Submit = (e)=> {
     e.preventDefault();
     axios.post(`${baseURL}/register`,{
       first, last, phone, email, password, confirmPassword
     })
-    .then(
-      navigate('/login')
+    .then( 
+      setShowSuccessModal(true),
+      setTimeout(() => {
+        setShowSuccessModal(false); 
+        navigate('/login');
+      }, 1500)
     )
     .catch(err => console.log(err))
   }
 
   return (
-    <div className="container-fluid py-2" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
+    <div className="container-fluid py-2 mt-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
     <div className="row d-flex justify-content-center align-items-center">
       <div className="col col-xl-7">
         <div className="card" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
@@ -94,6 +104,7 @@ const Register = () => {
         </div>
       </div>
     </div>
+    <RegisterSuccessModal show={showSuccessModal} />
   </div>
 
   )

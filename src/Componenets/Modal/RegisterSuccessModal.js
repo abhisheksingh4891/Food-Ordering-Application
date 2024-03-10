@@ -1,16 +1,18 @@
 import React from 'react';
 
-const WrongModal = ({ show }) => {
+const RegisterSuccessModal = ({ show }) => {
   return (
     <div className={`modal ${show ? 'show' : ''}`} tabIndex="-1" role="dialog" style={{ display: show ? 'block' : 'none'}}>
       <div className="modal-dialog" role="document">
         <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">Wrong Credentials</h5>
+          <div className="modal-header btn-success text-white">
+   
+            <h5 className="modal-title">Registeration Successful</h5>
+      
             <button type="button" className="btn-close" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <p>Please enter correct password!</p>
+            <p>You have successfully registered on our website!</p>
           </div>
         </div>
       </div>
@@ -18,4 +20,4 @@ const WrongModal = ({ show }) => {
   );
 };
 
-export default WrongModal;
+export default RegisterSuccessModal;

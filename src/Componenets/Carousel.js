@@ -5,16 +5,14 @@ import car3 from '../Assets/car1.jpg'
 import car4 from '../Assets/car2.jpg'
 
 const Carousel = () => {
-
-  const imgstyle = {
-      height: '550px', // Set the desired height for the images
-      width: '100%', // Ensure images take up full width of carousel
-      objectFit: 'cover',
-      filter: 'brightness(30%)'
-  }
+    const imgstyle = {
+        height: '550px', // Set the desired height for the images
+        width: '100%', // Ensure images take up full width of carousel
+        objectFit: 'cover',
+        filter: 'brightness(30%)'
+    }
   return (
-    <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{ 'position': 'relative', 'zIndex': '1' }}>
-
+    <div id="carouselExampleFade" className="carousel slide carousel-fade mt-5" data-bs-ride="carousel" style={{'zIndex': '1'}}>
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img src={car1} className="d-block w-100" alt="..." style={imgstyle}/>
@@ -52,5 +50,3 @@ const Carousel = () => {
 };
 
 export default Carousel;
-
-
