@@ -4,7 +4,7 @@ import Carousel from '../Componenets/Carousel'
 
 const Home = () => {
   return (
-    <div>
+    <div className="bg-dark">
       <Carousel/>
       <Card/>
     </div>
