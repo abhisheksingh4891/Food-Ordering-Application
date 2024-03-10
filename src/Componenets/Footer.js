@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -9,19 +10,19 @@ const Footer = () => {
         <h2 className="text-center fs-5 pt-5">Copyright @ 2024. Created by ABHISHEK SINGH</h2>
         <div className="row justify-content-center fs-3 mt-4">
           <div className="col-auto">
-            <a href="/" className="social-icon"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+            <Link to="/" className="social-icon"><i className="fa fa-facebook" aria-hidden="true"></i></Link>
           </div>
           <div className="col-auto">
-            <a href="/" className="social-icon"><i className="fa fa-twitter" aria-hidden="true"></i></a>
+            <Link to="/" className="social-icon"><i className="fa fa-twitter" aria-hidden="true"></i></Link>
           </div>
           <div className="col-auto">
-            <a href="/" className="social-icon"><i className="fa fa-instagram" aria-hidden="true"></i></a>
+            <Link to="/" className="social-icon"><i className="fa fa-instagram" aria-hidden="true"></i></Link>
           </div>
           <div className="col-auto">
-            <a href="/" className="social-icon"><i className="fa fa-pinterest-p" aria-hidden="true"></i></a>
+            <Link to="/" className="social-icon"><i className="fa fa-pinterest-p" aria-hidden="true"></i></Link>
           </div>
           <div className="col-auto">
-            <a href="/" className="social-icon"><i className="fa fa-google" aria-hidden="true"></i></a>
+            <Link to="/" className="social-icon"><i className="fa fa-google" aria-hidden="true"></i></Link>
           </div>
         </div>
       </div>
