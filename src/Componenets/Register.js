@@ -93,10 +93,10 @@ const Register = () => {
                   </div>
 
                   {/* <a className="small text-black" href="#!">Forgot password?</a> */}
-                  <p className="mb-2 text-black" style={{"color": "blue"}}>Already have an account? <Link to="/login"
+                  <p className="mb-2 text-black" style={{"color": "blue"}}>Already have an account? <Link to="/"
                       className="" style={{"color": "blue"}}>Login here</Link></p>
 
-                  <Link className="text-danger" to="/">Return to Home</Link>
+                  <Link className="text-danger" to="/home">Return to Home</Link>
                 </form>
               </div>
             </div>

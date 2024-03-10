@@ -21,8 +21,8 @@ const App = () => {
 
       <Navbar/>
         <Routes>
-          <Route path='/' element={loggedIn ?  <Home/> : <Login/>} />
-          <Route path='/login' element={<Login/>} />
+          <Route path='/' element={<Login/>} />
+          <Route path='/home' element={<Home/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/cart' element={loggedIn ? <Cart/> : <Login/> } />
           <Route path='/orders' element={loggedIn ?  <Orders/> : <Login/> } />

@@ -22,7 +22,7 @@ const Navbar = () => {
     setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
-      navigate('/login');
+      navigate('/');
     }, 800);
   };
 
@@ -30,7 +30,7 @@ const Navbar = () => {
     <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 fixed-top" style={{ opacity:'0.7'}}>
       <div className="container-fluid">
-        <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/">Foobies</Link>
+        <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/home">Foobies</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -42,15 +42,15 @@ const Navbar = () => {
             <li className='nav-item dropdown'>
               <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</Link>
               <ul className="dropdown-menu bg-dark mt-1 border-0 mx-3" aria-labelledby="navbarDropdown">
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/">Pizza</Link></li>
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/">Burger</Link></li>
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/">Cake</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Pizza</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Burger</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Cake</Link></li>
               </ul>
             </li>
             <li className="nav-item">
               {isLogin ? (
                 <li className='nav-item dropdown'>
-                  <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</Link>
+                  <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</Link>
                   <ul className="dropdown-menu bg-dark mt-1 border-0 mx-3" aria-labelledby="navbarDropdown">
                     <li><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to='/profile'>My Profile</Link></li>
                     <li className="nav-item"><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to="/orders">My Orders</Link></li>
@@ -59,7 +59,7 @@ const Navbar = () => {
                   </ul>
                 </li>
               ) : (
-                <Link className="nav-link active fw-bold" to="/login">Login</Link>
+                <Link className="nav-link active fw-bold" to="/"></Link>
               )}
             </li>
           </ul>

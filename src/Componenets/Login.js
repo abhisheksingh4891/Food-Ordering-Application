@@ -32,7 +32,7 @@ const Login = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            navigate('/');
+            navigate('/home');
           }, 800)
         } 
       })
@@ -80,7 +80,7 @@ const Login = () => {
                     <p className="mb-2 text-black" style={{"color": "blue"}}>Don't have an account? <Link to="/register"
                         className="" style={{"color": "blue"}}>Register here</Link></p>
 
-                    <Link className="text-danger" to="/">Return to Home</Link>
+                    <Link className="text-danger" to="/home">Return to Home</Link>
                   </form>
                 </div>
               </div>
