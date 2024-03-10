@@ -57,10 +57,10 @@ const Card = () => {
                                     <p className="card-text">{foodItem.description}</p>
                                     <div className="container d-flex justify-content-around gap-4">
                                         <div>
-                                            <button className="btn btn-success p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>Add to cart</button>
+                                            <button className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>Add to cart</button>
                                         </div>
                                         <div>
-                                            <select className="btn btn-success p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>
+                                            <select className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>
                                                 <option>0</option>
                                                 {Array.from(Array(4), (_, i) => (
                                                     <option key={i + 1} value={i + 1}> {i + 1} </option>
@@ -68,7 +68,7 @@ const Card = () => {
                                             </select>
                                         </div>
                                         <div>
-                                            <select className="btn btn-success p-1 fs-6" style={{ "filter": "brightness(70%)", width:'100px', height:'40px' }}>
+                                            <select className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>
                                                 <option>Quantity</option>
                                                 <option value={foodItem.options.full}>Full</option>
                                                 <option value={foodItem.options.half}>Half</option>
