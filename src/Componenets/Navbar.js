@@ -1,21 +1,24 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../Context/FoodContext';
 import LogoutModal from './Modal/LogoutModal';
 
 const Navbar = () => {
   const { isLogin, setIsLogin } = useContext(FoodContext);
-  const [showLogoutModal, setShowLogoutModal] = useState(false); 
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const navigate = useNavigate(); 
 
   const handleLogout = () => {
     setIsLogin(false);
     setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
+      navigate('/login');
     }, 800);
   };
 
   return (
+    <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-danger p-0 fixed-top " style={{ "filter": "brightness(70%)" }}>
       <div className="container-fluid">
         <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/">Foobies</Link>
@@ -37,7 +40,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               {isLogin ? (
-                <Link className="nav-link active fw-bold" to="/" onClick={handleLogout}>Logout</Link>
+                <Link className="nav-link active fw-bold" onClick={handleLogout}>Logout</Link>
               ) : (
                 <Link className="nav-link active fw-bold" to="/login">Login</Link>
               )}
@@ -45,8 +48,9 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <LogoutModal show={showLogoutModal} /> 
     </nav>
+    <LogoutModal show={showLogoutModal} /> 
+    </>
   );
 };
 

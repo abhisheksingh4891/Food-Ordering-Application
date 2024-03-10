@@ -24,7 +24,7 @@ const Login = () => {
           setShowWrongModal(true); 
           setTimeout(() => {
             setShowWrongModal(false); 
-          }, 1500)
+          }, 800)
         }
         else{
           setIsLogin(true);
@@ -32,7 +32,7 @@ const Login = () => {
           setTimeout(() => {
             setShowSuccessModal(false); 
             navigate('/');
-          }, 1500)
+          }, 800)
         } 
       })
       .catch(err => console.log(err));

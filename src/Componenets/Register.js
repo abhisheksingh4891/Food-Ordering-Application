@@ -30,7 +30,7 @@ const Register = () => {
       setTimeout(() => {
         setShowSuccessModal(false); 
         navigate('/login');
-      }, 1500)
+      }, 800)
     )
     .catch(err => console.log(err))
   }
