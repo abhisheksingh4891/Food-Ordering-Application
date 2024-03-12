@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
-import './CSS/Card.css'
+import React, { useState, useEffect, useContext } from "react";
+import './CSS/Card.css';
 import axios from 'axios';
+import { FoodContext } from "../../Context/FoodContext";
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const Card = () => {
     const [food, setFood] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const { addToCart } = useContext(FoodContext);
 
     useEffect(() => {
         axios.get(`${baseURL}/data`)
@@ -29,6 +31,10 @@ const Card = () => {
     const filteredFood = food.filter(item =>
         item.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    const handleAddToCart = (foodItem) => {
+        addToCart(foodItem);
+    };
 
     return (
         <div className="pb-3">
@@ -53,27 +59,16 @@ const Card = () => {
                             <div className="card my-4" style={{ "maxHeight": "400px" }} onMouseEnter={() => handleHover(index)} onMouseLeave={() => handleHover(index)}>
                                 <img src={foodItem.img} className="card-img-top" alt="Bhel Puri" style={{ "height": "200px", "objectFit": "cover", "filter": "brightness(80%)" }} />
                                 <div className="card-body">
-                                    <h5 className="card-title">{foodItem.name}</h5>
+                                    <div className="d-flex justify-content-between">
+                                        <h5 className="card-title">{foodItem.name}</h5>
+                                        <h6 className="card-title">Rs.{foodItem.price}</h6>
+                                    </div>
                                     <p className="card-text">{foodItem.description}</p>
                                     <div className="container d-flex justify-content-around gap-4">
                                         <div>
-                                            <button className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>Add to cart</button>
+                                            <button className="btn btn-danger p-1 fs-6" style={{ width: '100px', height: '40px' }} onClick={() => handleAddToCart(foodItem)}>Add to cart</button>
                                         </div>
-                                        <div>
-                                            <select className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>
-                                                <option>0</option>
-                                                {Array.from(Array(4), (_, i) => (
-                                                    <option key={i + 1} value={i + 1}> {i + 1} </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                        <div>
-                                            <select className="btn btn-danger p-1 fs-6" style={{width:'100px', height:'40px' }}>
-                                                <option>Quantity</option>
-                                                <option value={foodItem.options.full}>Full</option>
-                                                <option value={foodItem.options.half}>Half</option>
-                                            </select>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

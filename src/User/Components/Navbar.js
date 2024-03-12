@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FoodContext } from '../Context/FoodContext';
+import { FoodContext } from '../../Context/FoodContext';
 import LogoutModal from './Modal/LogoutModal';
 
 const Navbar = () => {
@@ -22,7 +22,7 @@ const Navbar = () => {
     setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
-      navigate('/');
+      navigate('/login');
     }, 800);
   };
 
@@ -35,33 +35,33 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul className="navbar-nav fs-6 d-flex gap-3">
+          <ul className="navbar-nav fs-6 d-flex gap-3 mx-3">
             {/* <li className="nav-item">
               <Link className="nav-link active fw-bold" aria-current="page" to="/">Home</Link>
             </li> */}
-            <li className='nav-item dropdown'>
+            {/* <li className='nav-item dropdown'>
               <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/login" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</Link>
               <ul className="dropdown-menu bg-dark mt-1 border-0 mx-3" aria-labelledby="navbarDropdown">
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Pizza</Link></li>
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Burger</Link></li>
-                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="/home">Cake</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="#">Pizza</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="#">Burger</Link></li>
+                <li><Link className='nav-link active fw-bold dropdown-item bg-dark text-white' to="#">Cake</Link></li>
               </ul>
-            </li>
+            </li> */}
             <li className="nav-item">
               {isLogin ? (
                 <li className='nav-item dropdown'>
-                  <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</Link>
+                  <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</Link>
                   <ul className="dropdown-menu bg-dark mt-1 border-0 mx-3" aria-labelledby="navbarDropdown">
                     <li><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to='/profile'>My Profile</Link></li>
                     <li className="nav-item"><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to="/orders">My Orders</Link></li>
-                    <li className="nav-item"><Link className="nav-link active fw-bold " to="/cart"><i className="fa fa-shopping-cart fs-3" aria-hidden="true"></i></Link></li>
                     <li><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" onClick={handleLogout}>Logout</Link></li>
                   </ul>
                 </li>
               ) : (
-                <Link className="nav-link active fw-bold" to="/"></Link>
+                <Link className="nav-link active fw-bold" to="/login">Login</Link>
               )}
             </li>
+            <li className="nav-item"><Link className="nav-link active fw-bold " to="/cart"><i className="fa fa-shopping-cart fs-3" aria-hidden="true"></i></Link></li>
           </ul>
         </div>
       </div>

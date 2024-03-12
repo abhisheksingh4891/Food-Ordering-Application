@@ -3,16 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+// import FoodContextProvider from './Context/FoodContext';
+
 
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // <FoodContextProvider>
+
   <BrowserRouter>   
     <React.StrictMode>
       <App />
     </React.StrictMode>
   </BrowserRouter>
+  // </FoodContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

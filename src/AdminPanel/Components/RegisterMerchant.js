@@ -1,12 +1,12 @@
 import axios from 'axios';
 import {React, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import RegisterSuccessModal from './Modal/RegisterSuccessModal';
+import RegisterSuccessModal from '../../User/Components/Modal/RegisterSuccessModal';
 // import WrongModal from './WrongModal';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
-const Register = () => {
+const RegisterMerchant = () => {
 
   const navigate = useNavigate();
 
@@ -29,14 +29,14 @@ const Register = () => {
       setShowSuccessModal(true),
       setTimeout(() => {
         setShowSuccessModal(false); 
-        navigate('/login');
+        navigate('/loginmerchant');
       }, 800)
     )
     .catch(err => console.log(err))
   }
 
   return (
-    <div className="container-fluid py-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
+    <div className="container-fluid py-3 pb-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
     <div className="row d-flex justify-content-center align-items-center mt-5">
       <div className="col col-xl-7">
         <div className="card" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
@@ -51,7 +51,7 @@ const Register = () => {
                     <span className="h1 fw-bold mb-0">Foobies</span>
                   </div>
 
-                  <h5 className="fw-normal mb-3 pb-1" style={{"letterSpacing": "1px"}}><u>Sign Up into your account</u></h5>
+                  <h5 className="fw-normal mb-3 pb-1" style={{"letterSpacing": "1px"}}><u>Create your business account</u></h5>
                   
                   <div className="form-outline mb-4">
                     <label className="form-label text-black fw-bold" htmlFor="form2Example17">First Name</label>
@@ -93,10 +93,10 @@ const Register = () => {
                   </div>
 
                   {/* <a className="small text-black" href="#!">Forgot password?</a> */}
-                  <p className="mb-2 text-black" style={{"color": "blue"}}>Already have an account? <Link to="/"
+                  <p className="mb-2 text-black" style={{"color": "blue"}}>Already have an account? <Link to="/loginmerchant"
                       className="" style={{"color": "blue"}}>Login here</Link></p>
 
-                  <Link className="text-danger" to="/home">Return to Home</Link>
+                  <Link className="text-danger" to="/">Return to Home</Link>
                 </form>
               </div>
             </div>
@@ -110,4 +110,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default RegisterMerchant
