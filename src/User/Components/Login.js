@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import SuccessModal from './Modal/SuccessModal';
 import WrongModal from './Modal/WrongModal';
@@ -15,6 +15,8 @@ const Login = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
   const { setIsLogin, isLogin } = useContext(FoodContext);
+
+  const navigate = useNavigate();
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +35,7 @@ const Login = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            window.location.href = "/home";
+            navigate('/home')
           }, 800)
         } 
       })
