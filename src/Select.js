@@ -17,12 +17,6 @@ const Select = () => {
 
   return (
     <>
-      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 fixed-top" style={{ opacity:'0.8'}}>
-        <div className="container-fluid"  style={{fontFamily:'Raleway'}}>
-          <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/home">Foobies</Link>
-        </div>
-      </nav> */}
-      
       <div className="container-fluid py-5 text-white" style={{fontFamily:'Raleway', backgroundImage: "url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
           {isParaDisplayed && (
             <div className={`text-center fs-1 mt-5 ${isParaDisplayed ? 'fade-in' : ''}`}>

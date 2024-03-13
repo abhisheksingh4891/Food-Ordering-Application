@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
-import SuccessModal from '../../User/Components/Modal/SuccessModal';
-import WrongModal from '../../User/Components/Modal/WrongModal';
+import SuccessModal from './Modal/SuccessModal';
+import WrongModal from './Modal/WrongModal';
 import bg1 from '../../Assets/bg5.jpg'
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
@@ -16,7 +16,7 @@ const LoginMerchant = () => {
   const { setMLogin, mlogin } = useContext(FoodContext);
 
   const navigate = useNavigate();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${baseURL}/login`, { email, password })
@@ -31,6 +31,7 @@ const LoginMerchant = () => {
         else{
           setMLogin(true);
           window.localStorage.setItem("merchantLogin", true);
+          // window.localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
@@ -40,7 +41,6 @@ const LoginMerchant = () => {
       })
       .catch(err => console.log(err));
   };
-
 
   return (
 
