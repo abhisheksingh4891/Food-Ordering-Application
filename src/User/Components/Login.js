@@ -35,7 +35,7 @@ const Login = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            navigate('/home')
+            navigate('/')
           }, 800)
         } 
       })

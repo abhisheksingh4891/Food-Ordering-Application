@@ -8,11 +8,9 @@ import Home from './User/Screen/Home';
 import Cart from './User/Screen/Cart';
 import Orders from './User/Screen/Orders';
 import Profile from './User/Components/MyProfile'
-import Select from './Select'
 import {Route, Routes } from 'react-router-dom';
 import LoginMerchant from './AdminPanel/Components/LoginMerchant';
 import RegisterMerchant from './AdminPanel/Components/RegisterMerchant';
-import HomeAdmin from './AdminPanel/Screen/HomeAdmin';
 
 const App = () => {
   const loggedIn = window.localStorage.getItem("isLoggedIn");
@@ -28,11 +26,12 @@ const App = () => {
     <FoodContextProvider>
       {/* <Navbar/> */}
         <Routes>
-          <Route path='/' element={<Select/>} />
+          {/* <Route path='/select' element={<Select/>} /> */}
 
           {/* // user Routes */}
           <Route path='/login' element={<Login/>} />
-          <Route path='/home' element={ <Home/>} />
+          <Route path='/' element={ <Home/>} />
+          {/* <Route path='/' element={ merchantLoggedIn  ? <Home/> : <Select/>} /> */}
           <Route path='/register' element={<Register/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/orders' element={<Orders/>} />
@@ -41,7 +40,6 @@ const App = () => {
           {/* // merchant routes */}
           <Route path='/loginmerchant' element={<LoginMerchant/>} />
           <Route path='/registermerchant' element={<RegisterMerchant/>} />
-          <Route path='/homeadmin' element={merchantLoggedIn ? <HomeAdmin/> : <Select/>} />
         </Routes>
       <Footer/>
     </FoodContextProvider>
