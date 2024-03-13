@@ -32,7 +32,7 @@ const App = () => {
 
           {/* // user Routes */}
           <Route path='/login' element={<Login/>} />
-          <Route path='/home' element={loggedIn ? <Home/> : <Login/>} />
+          <Route path='/home' element={ window.localStorage.getItem("isLoggedIn") ? <Home/> : <Login/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/orders' element={<Orders/>} />

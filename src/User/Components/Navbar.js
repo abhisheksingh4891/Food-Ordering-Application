@@ -22,7 +22,8 @@ const Navbar = () => {
     setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
-      navigate('/login');
+      // navigate('/login');
+      window.location.href = "/login";
     }, 800);
   };
 

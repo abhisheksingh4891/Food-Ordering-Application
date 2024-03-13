@@ -32,7 +32,8 @@ const Login = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            navigate('/home');
+            window.location.href = "/home";
+            // navigate('/home');
           }, 800)
         } 
       })
