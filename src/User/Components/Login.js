@@ -33,7 +33,7 @@ const Login = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            window.location.href = "/";
+            window.location.href = "/home";
           }, 800)
         } 
       })
