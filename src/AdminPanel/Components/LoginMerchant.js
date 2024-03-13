@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import SuccessModal from '../../User/Components/Modal/SuccessModal';
 import WrongModal from '../../User/Components/Modal/WrongModal';
@@ -15,6 +15,7 @@ const LoginMerchant = () => {
   const [showWrongModal, setShowWrongModal] = useState(false);
   const { setMLogin, mlogin } = useContext(FoodContext);
 
+  const navigate = useNavigate();
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +34,7 @@ const LoginMerchant = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            window.location.href = "/homeadmin";
+            navigate('/')
           }, 800)
         } 
       })
@@ -48,7 +49,7 @@ const LoginMerchant = () => {
       <div className="col col-xl-5">
         <div className="" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
           <div className="row g-0">
-            <div className="col-md-6 col-lg-10 d-flex align-items-center">
+            <div className="col-md-6 col-lg-10 d-flex align-items-cente">
               <div className="card-body p-4 p-lg-5 text-dark">
                   <form onSubmit={handleSubmit} style={{fontFamily:'Raleway'}}>
 
