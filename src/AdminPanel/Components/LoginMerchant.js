@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import SuccessModal from './Modal/SuccessModal';
 import WrongModal from './Modal/WrongModal';
@@ -13,9 +13,9 @@ const LoginMerchant = () => {
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
-  const { setMLogin, mlogin } = useContext(FoodContext);
+  const { setMLogin, mLogin } = useContext(FoodContext);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +35,8 @@ const LoginMerchant = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            navigate('/')
+            // navigate('/')
+            window.location.href = '/'
           }, 800)
         } 
       })
@@ -92,7 +93,7 @@ const LoginMerchant = () => {
         </div>
       </div>
       {
-        mlogin ? (<SuccessModal show={showSuccessModal} />):(<WrongModal show={showWrongModal} />)
+        mLogin ? (<SuccessModal show={showSuccessModal} />):(<WrongModal show={showWrongModal} />)
       }
       
       

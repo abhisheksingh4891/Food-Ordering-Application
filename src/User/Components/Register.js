@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {React, useState} from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import RegisterSuccessModal from './Modal/RegisterSuccessModal';
 import bg1 from '../../Assets/bg1.jpg'
 // import WrongModal from './WrongModal';
@@ -19,6 +19,8 @@ const Register = () => {
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   // const [showWrongModal, setShowWrongModal] = useState(false);
 
+  const navigate = useNavigate();
+
   const Submit = (e)=> {
     e.preventDefault();
     axios.post(`${baseURL}/register`,{
@@ -28,7 +30,7 @@ const Register = () => {
       setShowSuccessModal(true),
       setTimeout(() => {
         setShowSuccessModal(false); 
-        window.location.href = "/login";
+        navigate("/login");
       }, 800)
     )
     .catch(err => console.log(err))

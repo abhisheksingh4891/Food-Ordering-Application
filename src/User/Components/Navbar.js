@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { Link} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import LogoutModal from './Modal/LogoutModal';
 
@@ -16,15 +16,15 @@ const Navbar = () => {
     }
   });
 
-  // const navigate = useNavigate(); 
+  const navigate = useNavigate(); 
   const handleLogout = () => {
     window.localStorage.removeItem("isLoggedIn");
     setIsLogin(false);
     setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
-      // navigate('/login');
-      window.location.href = "/login";
+      navigate('/login');
+      // window.location.href = "/login";
     }, 800);
   };
 

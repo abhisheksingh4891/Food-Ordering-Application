@@ -1,13 +1,15 @@
 import axios from 'axios';
 import {React, useState} from 'react'
-import { Link } from 'react-router-dom';
-import RegisterSuccessModal from '../../User/Components/Modal/RegisterSuccessModal';
+import { Link, useNavigate } from 'react-router-dom';
+import RegisterSuccessModal from './Modal/RegisterSuccessModal';
 import bg1 from '../../Assets/bg1.jpg'
 // import WrongModal from './WrongModal';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const RegisterMerchant = () => {
+
+  const navigate = useNavigate();
 
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
@@ -28,7 +30,7 @@ const RegisterMerchant = () => {
       setShowSuccessModal(true),
       setTimeout(() => {
         setShowSuccessModal(false); 
-        window.location.href = "/loginmerchant";
+        navigate("/loginmerchant");
       }, 800)
     )
     .catch(err => console.log(err))
