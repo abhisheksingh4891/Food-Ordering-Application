@@ -28,11 +28,11 @@ const App = () => {
     <FoodContextProvider>
       {/* <Navbar/> */}
         <Routes>
-          <Route path='/' element={<Select/>} />
+          <Route path='/select' element={<Select/>} />
 
           {/* // user Routes */}
           <Route path='/login' element={<Login/>} />
-          <Route path='/home' element={ window.localStorage.getItem("isLoggedIn") ? <Home/> : <Login/>} />
+          <Route path='/' element={ window.localStorage.getItem("isLoggedIn") ? <Home/> : <Select/>} />
           <Route path='/register' element={<Register/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/orders' element={<Orders/>} />
@@ -41,7 +41,7 @@ const App = () => {
           {/* // merchant routes */}
           <Route path='/loginmerchant' element={<LoginMerchant/>} />
           <Route path='/registermerchant' element={<RegisterMerchant/>} />
-          <Route path='/homeadmin' element={merchantLoggedIn ? <HomeAdmin/> : <LoginMerchant/>} />
+          <Route path='/homeadmin' element={merchantLoggedIn ? <HomeAdmin/> : <Select/>} />
         </Routes>
       <Footer/>
     </FoodContextProvider>
