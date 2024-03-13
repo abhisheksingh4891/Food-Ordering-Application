@@ -33,7 +33,7 @@ const LoginMerchant = () => {
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            window.location.href = "/homeadmin";
+            window.location.href = "https://foobies.netlify.app/homeadmin";
           }, 800)
         } 
       })
