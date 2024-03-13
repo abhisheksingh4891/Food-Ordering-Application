@@ -18,7 +18,7 @@ const Select = () => {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 fixed-top" style={{ opacity:'0.8'}}>
-        <div className="container-fluid">
+        <div className="container-fluid"  style={{fontFamily:'Raleway'}}>
           <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/home">Foobies</Link>
         </div>
       </nav>

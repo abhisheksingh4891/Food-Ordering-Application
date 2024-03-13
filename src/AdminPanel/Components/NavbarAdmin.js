@@ -29,7 +29,7 @@ const NavbarAdmin = () => {
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark p-1 fixed-top" style={{ opacity:'0.7'}}>
-      <div className="container-fluid">
+      <div className="container-fluid"  style={{fontFamily:'Raleway'}}>
         <Link className="navbar-brand fs-3 fw-bold fst-italic" to="/home">Foobies</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

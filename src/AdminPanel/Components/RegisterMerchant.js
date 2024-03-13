@@ -1,14 +1,13 @@
 import axios from 'axios';
 import {React, useState} from 'react'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import RegisterSuccessModal from '../../User/Components/Modal/RegisterSuccessModal';
+import bg1 from '../../Assets/bg1.jpg'
 // import WrongModal from './WrongModal';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const RegisterMerchant = () => {
-
-  const navigate = useNavigate();
 
   const [first, setFirst] = useState('');
   const [last, setLast] = useState('');
@@ -29,29 +28,29 @@ const RegisterMerchant = () => {
       setShowSuccessModal(true),
       setTimeout(() => {
         setShowSuccessModal(false); 
-        navigate('/loginmerchant');
+        window.location.href = "/loginmerchant";
       }, 800)
     )
     .catch(err => console.log(err))
   }
 
   return (
-    <div className="container-fluid py-3 pb-5" style={{"backgroundImage":"url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
+    <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>
     <div className="row d-flex justify-content-center align-items-center mt-5">
       <div className="col col-xl-7">
-        <div className="card" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
+        <div className="" style={{ borderRadius: "1rem", backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
           <div className="row g-0">
             <div className="col-md-6 col-lg-10 d-flex align-items-center">
               <div className="card-body p-4 p-lg-5 text-black">
 
-                <form onSubmit={Submit}>
+                <form onSubmit={Submit} style={{fontFamily:'Raleway'}}>
 
                   <div className="d-flex align-items-center mb-3 pb-1 text-black">
                     <i className="fas fa-cubes fa-2x me-3" style={{"color": "#ff6219"}}></i>
                     <span className="h1 fw-bold mb-0">Foobies</span>
                   </div>
 
-                  <h5 className="fw-normal mb-3 pb-1" style={{"letterSpacing": "1px"}}><u>Create your business account</u></h5>
+                  <h5 className="fw-normal mb-3 pb-1 fw-bold" style={{"letterSpacing": "1px"}}><u>Create your business account</u></h5>
                   
                   <div className="form-outline mb-4">
                     <label className="form-label text-black fw-bold" htmlFor="form2Example17">First Name</label>
@@ -89,14 +88,14 @@ const RegisterMerchant = () => {
                   </div> 
 
                   <div className="pt-2 mb-4">
-                    <button className="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+                    <button className="btn btn-success btn-lg btn-block" type="submit">Sign Up</button>
                   </div>
 
                   {/* <a className="small text-black" href="#!">Forgot password?</a> */}
-                  <p className="mb-2 text-black" style={{"color": "blue"}}>Already have an account? <Link to="/loginmerchant"
+                  <p className="mb-2 text-black fw-bold" style={{"color": "blue"}}>Already have an account? <Link to="/loginmerchant"
                       className="" style={{"color": "blue"}}>Login here</Link></p>
 
-                  <Link className="text-danger" to="/">Return to Home</Link>
+                  <Link className="text-danger fw-bold" to="/">Return to Home</Link>
                 </form>
               </div>
             </div>
