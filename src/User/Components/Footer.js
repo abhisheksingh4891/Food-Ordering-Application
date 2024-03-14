@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="footer text-white bg-dark" style={{backgroundColor: 'rgba(255, 255, 255, 0.5)', paddingBottom: '25px', filter:'brightness(100%)', fontFamily:'Raleway'}}>
+    <div className="footer text-black" style={{backgroundColor: 'rgba(255, 255, 255, 0.5)', paddingBottom: '25px', fontFamily:'Raleway'}}>
       <div className="container">
         {/* <h1 className="text-center pt-5 mt-0">“</h1> */}
         <p className="text-center pt-5 fs-5 fw-normal">If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.</p>
