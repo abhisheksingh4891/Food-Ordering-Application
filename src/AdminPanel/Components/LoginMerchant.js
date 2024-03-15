@@ -82,7 +82,7 @@ const LoginMerchant = () => {
                     <p className="text-black fw-bold" style={{"color": "blue", fontFamily:'Raleway'}}>If you are a User? <Link to="/login"
                         className="" style={{"color": "blue"}}>Login here</Link></p>
 
-                    <Link className="text-danger" to="/">Return to Home</Link>
+                    <Link className="text-danger fw-bold" to="/">Return to Home</Link>
                   </form>
                 </div>
               </div>

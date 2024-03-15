@@ -6,10 +6,11 @@ import car4 from '../../Assets/car2.jpg'
 
 const Carousel = () => {
     const imgstyle = {
-        height: '550px', // Set the desired height for the images
-        width: '100%', // Ensure images take up full width of carousel
-        objectFit: 'cover',
-        filter: 'brightness(30%)'
+      height: '600px', // Set the desired height for the images
+      width: '100%', // Ensure images take up full width of carousel
+      objectFit: 'cover',
+      backgroundPosition: 'center',
+      filter: 'brightness(30%)'
     }
   return (
     <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{'zIndex': '1'}}>

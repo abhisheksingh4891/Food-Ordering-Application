@@ -19,7 +19,7 @@ const Select = () => {
     <>
       <div className="container-fluid py-5 text-white" style={{fontFamily:'Raleway', backgroundImage: "url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
           {isParaDisplayed && (
-            <div className={`text-center fs-1 mt-5 ${isParaDisplayed ? 'fade-in' : ''}`}>
+            <div className={`text-center fs-1 mt-5 py-1 ${isParaDisplayed ? 'fade-in' : ''}`}>
               <p>Welcome to Foobies!</p>
               <p className="mt-4">Indulge in Culinary Delights: Where Every Bite Tells a Story!</p>
             </div>
