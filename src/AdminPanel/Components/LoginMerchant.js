@@ -13,7 +13,7 @@ const LoginMerchant = () => {
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
-  const { setMLogin, mLogin } = useContext(FoodContext);
+  const { setMLogin, mLogin, setUser } = useContext(FoodContext);
 
   // const navigate = useNavigate();
 
@@ -29,6 +29,7 @@ const LoginMerchant = () => {
           }, 800)
         }
         else{
+          setUser(email);
           setMLogin(true);
           window.localStorage.setItem("merchantLogin", true);
           setShowSuccessModal(true); 

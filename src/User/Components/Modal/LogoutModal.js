@@ -10,7 +10,7 @@
               <button type="button" className="btn-close" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <p>You have been successfully logged out!</p>
+              <p>User has been successfully logged out!</p>
             </div>
           </div>
         </div>

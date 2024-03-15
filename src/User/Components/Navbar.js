@@ -18,9 +18,9 @@ const Navbar = () => {
 
   const navigate = useNavigate(); 
   const handleLogout = () => {
+    setShowLogoutModal(true); 
     window.localStorage.removeItem("isLoggedIn");
     setIsLogin(false);
-    setShowLogoutModal(true); 
     setTimeout(() => {
       setShowLogoutModal(false); 
       navigate('/login');
@@ -67,8 +67,8 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </nav>
     <LogoutModal show={showLogoutModal} /> 
+    </nav>
     </>
   );
 };

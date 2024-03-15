@@ -12,6 +12,7 @@ const FoodContextProvider = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [successShowModal, setSuccessShowModal] = useState(false);
   const [proceedToPay, setProceedToPay] = useState(false);
+  const [user, setUser] = useState('');
 
   const addToCart = (item) => {
     if (item && typeof item === 'object' && '_id' in item) {
@@ -77,7 +78,9 @@ const FoodContextProvider = (props) => {
     setProceedToPay,
     clearCart,
     setMLogin, 
-    mLogin
+    mLogin,
+    user, 
+    setUser
   };
 
   return (

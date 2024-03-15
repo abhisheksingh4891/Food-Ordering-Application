@@ -15,7 +15,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
-  const { setIsLogin, isLogin } = useContext(FoodContext);
+  const { setIsLogin, isLogin, setUser } = useContext(FoodContext);
+  
 
   // const navigate = useNavigate();
   
@@ -31,6 +32,7 @@ const Login = () => {
           }, 800)
         }
         else{
+          setUser(email);
           setIsLogin(true);
           window.localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 
