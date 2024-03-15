@@ -31,7 +31,6 @@ const LoginMerchant = () => {
         else{
           setMLogin(true);
           window.localStorage.setItem("merchantLogin", true);
-          // window.localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
@@ -42,7 +41,6 @@ const LoginMerchant = () => {
       })
       .catch(err => console.log(err));
   };
-
   return (
 
     <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>
