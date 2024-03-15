@@ -19,7 +19,7 @@ const LoginMerchant = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${baseURL}/login`, { email, password })
+    axios.post(`${baseURL}/loginmerchant`, { email, password })
       .then(result => {
         console.log(result);
         if(result.data === "Password is incorrect...") {
