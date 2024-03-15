@@ -7,6 +7,7 @@ export const FoodContext = createContext({});
 
 const FoodContextProvider = (props) => {
   const [isLogin, setIsLogin] = useState(false);
+  const [mLogin, setMLogin] = useState(false);
   const [cartItems, setCartItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [successShowModal, setSuccessShowModal] = useState(false);
@@ -74,7 +75,9 @@ const FoodContextProvider = (props) => {
     setSuccessShowModal,
     proceedToPay,
     setProceedToPay,
-    clearCart
+    clearCart,
+    setMLogin, 
+    mLogin
   };
 
   return (
