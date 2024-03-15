@@ -26,15 +26,16 @@ const Register = () => {
     axios.post(`${baseURL}/register`,{
       first, last, phone, email, password, confirmPassword
     })
-    .then( 
-      setShowSuccessModal(true),
+    .then(() => {
+      setShowSuccessModal(true);
       setTimeout(() => {
         setShowSuccessModal(false); 
         navigate("/login");
-      }, 800)
-    )
-    .catch(err => console.log(err))
+      }, 800);
+    })
+    .catch(err => console.log(err));
   }
+  
 
   return (
     <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>
