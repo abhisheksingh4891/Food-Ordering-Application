@@ -23,7 +23,7 @@ const RegisterMerchant = () => {
 
   const Submit = (e)=> {
     e.preventDefault();
-    axios.post(`${baseURL}/register`,{
+    axios.post(`${baseURL}/registermerchant`,{
       first, last, phone, email, password, confirmPassword
     })
     .then( 
