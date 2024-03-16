@@ -16,12 +16,13 @@ const Home = () => {
   
   const { isLogin, mLogin } = useContext(FoodContext);
 
-  if(isLogin){
-    console.log("User logged in");
-  }
-  if(mLogin){
-    console.log("Merchant logged in");
-  }
+  // console.log( isLogin && ("User logged in"));
+  // // if(isLogin){
+  // //   console.log("User logged in");
+  // // }
+  // if(mLogin){
+  //   console.log("Merchant logged in");
+  // }
 
   return (
     <>
@@ -36,6 +37,7 @@ const Home = () => {
         <div className="bg-dark">
           <NavbarAdmin />
           <CarouselAdmin />
+          <Card />
         </div>
       )}
       {!isLogin && !mLogin && (

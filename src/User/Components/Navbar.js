@@ -18,7 +18,7 @@ const Navbar = () => {
   const navigate = useNavigate(); 
   const handleLogout = () => {
     setShowLogoutModal(true); 
-    window.localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("isLoggedIn");
     setIsLogin(false);
     setTimeout(() => {
       setShowLogoutModal(false); 

@@ -45,7 +45,7 @@ const NavbarAdmin = () => {
                   <Link className="nav-link active fw-bold dropdown-toggle" aria-current="page" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</Link>
                   <ul className="dropdown-menu bg-dark mt-1 border-0 mx-3" aria-labelledby="navbarDropdown">
                     <li><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to='/profilemerchant'>My Profile</Link></li>
-                    <li className="nav-item"><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to="/orders">Add Items</Link></li> 
+                    <li className="nav-item"><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to="/additems">Add Items</Link></li> 
                     {/* <li className="nav-item"><Link className="nav-link active fw-bold " to="/cart"><i className="fa fa-shopping-cart fs-3" aria-hidden="true"></i></Link></li> */}
                     <li><Link className="nav-link active fw-bold dropdown-item bg-dark text-white" to='/' onClick={handleLogout}>Logout</Link></li>
                   </ul>

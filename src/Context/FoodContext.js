@@ -1,5 +1,5 @@
 // FoodContextProvider.js
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 // import axios from 'axios';
 import DuplicateItemModal from './Modal/DuplicateItemModal';
 import SuccessItemModal from './Modal/SuccessItemModal';
@@ -19,8 +19,22 @@ const FoodContextProvider = (props) => {
   const [userData, setUserData] = useState({});
   const [merchantData, setMerchantData] = useState({});
 
-  console.log(userData);
-  console.log(merchantData);
+  // console.log(userData);
+  // console.log(merchantData);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+    if (isLoggedIn) {
+      setIsLogin(true);
+    }
+  }, [setIsLogin]);
+
+  useEffect(() => {
+    const merchantLogin = localStorage.getItem("merchantLogin");
+    if (merchantLogin) {
+      setMLogin(true);
+    }
+  }, [setMLogin]);
 
   const addToCart = (item) => {
     if (item && typeof item === 'object' && '_id' in item) {

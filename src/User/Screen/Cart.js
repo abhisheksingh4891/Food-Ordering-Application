@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import bg5 from '../../Assets/car5.jpg';
 
 const Cart = () => {
-  const { cartItems, incrementQuantity, decrementQuantity, removeFromCart, setProceedToPay} = useContext(FoodContext);
+  const { cartItems, incrementQuantity, decrementQuantity, removeFromCart, setProceedToPay } = useContext(FoodContext);
   const navigate = useNavigate();
 
   const handleProceedToPay = () => {
@@ -23,7 +23,7 @@ const Cart = () => {
       <div className="position-relative" style={{ zIndex: 1 }}>
         <Navbar />
         <div className="container-fluid py-5">
-          <h2 className="pt-4 text-center fw-bold fs-1" style={{ fontFamily: 'Raleway', color:'#0303FC '}}><u>Your Cart</u></h2>
+          <h2 className="pt-4 text-center fs-1 text-white" style={{ fontFamily: 'Raleway'}}><u>Your Cart</u></h2>
           {cartItems.length === 0 ? (
             <p className="py-4 mx-3 mx-md-5 fs-4 text-center fw-bold" style={{ fontFamily: 'Raleway', color:'#0303FC'}}>Your cart is empty!</p>
           ) : (
@@ -34,10 +34,10 @@ const Cart = () => {
                   <div className="col fw-bold" style={{ fontFamily: 'Raleway'}}>Name</div>
                   <div className="col fw-bold" style={{ fontFamily: 'Raleway'}}>Price</div>
                   <div className="col">
-                      <button className="btn btn-dark shadow-none fs-2"></button>
-                      <span className="btn btn-dark text-info fw-bold" style={{ fontFamily: 'Raleway'}}>Quantity</span>
-                      <button className="btn btn-dark shadow-none fs-2"></button>
-                    </div>
+                    <button className="btn btn-dark shadow-none fs-2"></button>
+                    <span className="btn btn-dark text-info fw-bold" style={{ fontFamily: 'Raleway'}}>Quantity</span>
+                    <button className="btn btn-dark shadow-none fs-2"></button>
+                  </div>
                   <div className="col fw-bold" style={{ fontFamily: 'Raleway'}}>Total</div>
                   <div className="col"></div>
                 </div>
@@ -56,7 +56,7 @@ const Cart = () => {
                       <button className="btn btn-dark shadow-none fs-2" onClick={() => incrementQuantity(item._id)}>+</button>
                     </div>
                     <div className="col">Rs. {item.price * item.quantity}</div>
-                    <div className="col"><button className="btn btn-danger" onClick={() => removeFromCart(item._id)}>Remove</button></div>
+                    <div className="col-md-2 col-12"><button className="btn btn-danger" onClick={() => removeFromCart(item._id)}>Remove</button></div>
                   </div>
                 </li>
               ))}
@@ -64,9 +64,9 @@ const Cart = () => {
           )}
         </div>
         <hr className="fw-bold" />
-        <div className="text-white container-fluid d-flex justify-content-between align-items-center mx-3 mx-md-2" style={{ fontFamily: 'Raleway'}}>
+        <div className="text-white container-fluid d-flex flex-column gap-3 justify-content-between align-items-center mx-md-2" style={{ fontFamily: 'Raleway'}}>
           <h1>Cart Total = {cartTotal}</h1>
-          <button className="btn btn-success rounded" onClick={handleProceedToPay}>Proceed to pay</button>
+          <button className="btn btn-success rounded mb-4" onClick={handleProceedToPay}>Proceed to pay</button>
         </div>
       </div>
     </div>

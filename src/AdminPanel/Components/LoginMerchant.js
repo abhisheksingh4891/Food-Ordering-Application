@@ -67,7 +67,7 @@ const LoginMerchant = () => {
                       <i className="fas fa-cubes fa-2x me-3" style={{"color": "#ff6219"}}></i>
                       <span className="h1 fw-bold mb-0">Foobies</span>
                     </div>
-                    <h5 className="fw-bold mb-3 pb-1" style={{"letterSpacing": "1px"}}>Log into your account</h5>
+                    <h5 className="fw-bold mb-3 pb-1" style={{"letterSpacing": "1px"}}>Log into your buisness account</h5>
                     <div className="form-outline mb-4">
                       <label className="form-label text-black fw-bold" htmlFor="form2Example17">Email address</label>
                       <input required type="email" id="form2Example17" className="form-control form-control-lg" onChange={(e)=>{setEmail(e.target.value)}} name="email"/>
@@ -83,8 +83,8 @@ const LoginMerchant = () => {
                     <div className="pt-2 mb-4">
                       <button className="btn btn-success btn-lg btn-block" type="submit">Login</button>
                     </div>
-                    <p className="mb-2 text-black fw-bold" style={{"color": "blue"}}>Don't have an account? <Link to="/register" className="" style={{"color": "blue"}}>Register here</Link></p>
-                    <p className="text-black fw-bold" style={{"color": "blue"}}>If you are a Merchant? <Link to="/loginmerchant" className="" style={{"color": "blue"}}>Login here</Link></p>
+                    <p className="mb-2 text-black fw-bold" style={{"color": "blue"}}>Don't have an account? <Link to="/registermerchant" className="" style={{"color": "blue"}}>Register here</Link></p>
+                    <p className="text-black fw-bold" style={{"color": "blue"}}>If you are a User? <Link to="/login" className="" style={{"color": "blue"}}>Login here</Link></p>
                     <Link className="text-danger fw-bold" to="/">Return to Home</Link>
                   </form>
                 </div>
