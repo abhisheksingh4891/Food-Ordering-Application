@@ -1,7 +1,10 @@
 // FoodContextProvider.js
 import React, { createContext, useState } from 'react';
+// import axios from 'axios';
 import DuplicateItemModal from './Modal/DuplicateItemModal';
 import SuccessItemModal from './Modal/SuccessItemModal';
+
+// const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 export const FoodContext = createContext({});
 
@@ -13,6 +16,19 @@ const FoodContextProvider = (props) => {
   const [successShowModal, setSuccessShowModal] = useState(false);
   const [proceedToPay, setProceedToPay] = useState(false);
   const [user, setUser] = useState('');
+  const [userData, setUserData] = useState([]);
+
+  // const handleLogin = async (email, password) => {
+  //   try {
+  //     const response = await axios.post(`${baseURL}/login`, { email, password });
+  //     const userData = response.data.user;
+  //     setUserData(userData);
+  //     // setLoginError(null);
+  //   } catch (error) {
+  //     setUserData(null);
+  //     // setLoginError(error.response.data.error);
+  //   }
+  // };
 
   const addToCart = (item) => {
     if (item && typeof item === 'object' && '_id' in item) {
@@ -80,7 +96,9 @@ const FoodContextProvider = (props) => {
     setMLogin, 
     mLogin,
     user, 
-    setUser
+    setUser,
+    userData,
+    setUserData
   };
 
   return (

@@ -15,7 +15,7 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
-  const { setIsLogin, isLogin, setUser } = useContext(FoodContext);
+  const { setIsLogin, isLogin, setUser, setUserData } = useContext(FoodContext);
   
 
   // const navigate = useNavigate();
@@ -25,20 +25,21 @@ const Login = () => {
     axios.post(`${baseURL}/login`, { email, password })
       .then(result => {
         console.log(result);
-        if(result.data === "Password is incorrect...") {
+        if (result.data === "Password is incorrect...") {
           setShowWrongModal(true); 
           setTimeout(() => {
             setShowWrongModal(false); 
           }, 800)
-        }
-        else{
+        } else {
           setUser(email);
           setIsLogin(true);
+          setUserData(result.data.user);
+          console.log("Received user data:", result.data.user);
+
           window.localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            // navigate('/')
             window.location.href = '/'
           }, 800)
         } 
