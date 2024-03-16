@@ -1,6 +1,6 @@
 import axios from 'axios';
-import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import SuccessModal from './Modal/SuccessModal';
 import WrongModal from './Modal/WrongModal';
@@ -13,35 +13,44 @@ const LoginMerchant = () => {
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
   const [showWrongModal, setShowWrongModal] = useState(false);
-  const { setMLogin, mLogin, setUser } = useContext(FoodContext);
+  const { setMLogin, mLogin, setUser, setUserData } = useContext(FoodContext);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const merchantLogin = localStorage.getItem("merchantLogin");
+    if (merchantLogin) {
+      setMLogin(true);
+    }
+  }, [setMLogin]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${baseURL}/loginmerchant`, { email, password })
       .then(result => {
         console.log(result);
-        if(result.data === "Password is incorrect...") {
+        if (result.data === "Password is incorrect...") {
           setShowWrongModal(true); 
           setTimeout(() => {
             setShowWrongModal(false); 
           }, 800)
-        }
-        else{
+        } else {
           setUser(email);
           setMLogin(true);
-          window.localStorage.setItem("merchantLogin", true);
+          setUserData(result.data.user);
+          console.log("Received user data:", result.data.user);
+
+          localStorage.setItem("merchantLogin", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            // navigate('/')
-            window.location.href = '/'
+            navigate('/')
           }, 800)
         } 
       })
       .catch(err => console.log(err));
   };
+  
   return (
 
     <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>

@@ -13,11 +13,11 @@ import LoginMerchant from './AdminPanel/Components/LoginMerchant';
 import RegisterMerchant from './AdminPanel/Components/RegisterMerchant';
 
 const App = () => {
-  const loggedIn = window.localStorage.getItem("isLoggedIn");
-  console.log(loggedIn, "login");
+  // const loggedIn = window.localStorage.getItem("isLoggedIn");
+  // console.log(loggedIn, "login");
 
-  const merchantLoggedIn = window.localStorage.getItem("merchantLogin");
-  console.log(merchantLoggedIn, "login");
+  // const merchantLoggedIn = window.localStorage.getItem("merchantLogin");
+  // console.log(merchantLoggedIn, "login");
 
 
 

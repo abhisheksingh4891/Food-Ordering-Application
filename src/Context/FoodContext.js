@@ -16,7 +16,7 @@ const FoodContextProvider = (props) => {
   const [successShowModal, setSuccessShowModal] = useState(false);
   const [proceedToPay, setProceedToPay] = useState(false);
   const [user, setUser] = useState('');
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState({});
 
   console.log(userData);
 
