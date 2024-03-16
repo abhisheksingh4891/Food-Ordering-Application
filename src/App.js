@@ -11,6 +11,7 @@ import Profile from './User/Components/MyProfile'
 import {Route, Routes } from 'react-router-dom';
 import LoginMerchant from './AdminPanel/Components/LoginMerchant';
 import RegisterMerchant from './AdminPanel/Components/RegisterMerchant';
+import ProfileMerchant from './AdminPanel/Components/ProfileMerchant';
 
 const App = () => {
   // const loggedIn = window.localStorage.getItem("isLoggedIn");
@@ -40,6 +41,7 @@ const App = () => {
           {/* // merchant routes */}
           <Route path='/loginmerchant' element={<LoginMerchant/>} />
           <Route path='/registermerchant' element={<RegisterMerchant/>} />
+          <Route path='/profilemerchant' element={<ProfileMerchant />} />
         </Routes>
       <Footer/>
     </FoodContextProvider>

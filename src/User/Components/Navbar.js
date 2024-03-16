@@ -3,7 +3,6 @@ import { Link, useNavigate} from 'react-router-dom';
 import { FoodContext } from '../../Context/FoodContext';
 import LogoutModal from './Modal/LogoutModal';
 
-
 const Navbar = () => {
   const { isLogin, setIsLogin } = useContext(FoodContext);
   const [showLogoutModal, setShowLogoutModal] = useState(false);

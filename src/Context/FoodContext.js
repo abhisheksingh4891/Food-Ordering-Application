@@ -17,20 +17,10 @@ const FoodContextProvider = (props) => {
   const [proceedToPay, setProceedToPay] = useState(false);
   const [user, setUser] = useState('');
   const [userData, setUserData] = useState({});
+  const [merchantData, setMerchantData] = useState({});
 
   console.log(userData);
-
-  // const handleLogin = async (email, password) => {
-  //   try {
-  //     const response = await axios.post(`${baseURL}/login`, { email, password });
-  //     const userData = response.data.user;
-  //     setUserData(userData);
-  //     // setLoginError(null);
-  //   } catch (error) {
-  //     setUserData(null);
-  //     // setLoginError(error.response.data.error);
-  //   }
-  // };
+  console.log(merchantData);
 
   const addToCart = (item) => {
     if (item && typeof item === 'object' && '_id' in item) {
@@ -100,7 +90,9 @@ const FoodContextProvider = (props) => {
     user, 
     setUser,
     userData,
-    setUserData
+    setUserData,
+    merchantData,
+    setMerchantData
   };
 
   return (

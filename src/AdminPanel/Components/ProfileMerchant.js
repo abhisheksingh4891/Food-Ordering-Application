@@ -1,21 +1,21 @@
 import React, { useContext } from 'react';
-import Navbar from './Navbar';
+import Navbar from './NavbarAdmin';
 import { FoodContext } from '../../Context/FoodContext';
 
-const MyProfile = () => {
-  const { userData } = useContext(FoodContext);
+const ProfileMerchant = () => {
+  const { merchantData } = useContext(FoodContext);
 
   return (
     <div className="container-fluid py-2" style={{backgroundImage: "url('https://t3.ftcdn.net/jpg/05/40/57/24/360_F_540572408_RX2AsVFgiiLM1rZDAIJKMwsYpPn1VR6f.jpg')"}}>
       <Navbar />
       <div className="container-fluid py-5 text-white">
         <h1>My Profile</h1>
-        {userData ? (
+        {merchantData ? (
           <div>
-            <p>First Name: {userData.first}</p>
-            <p>Last Name: {userData.last}</p>
-            <p>Email: {userData.email}</p>
-            {/* <p>Phone: {userData.phone}</p> */}
+            <p>First Name: {merchantData.first}</p>
+            <p>Last Name: {merchantData.last}</p>
+            <p>Email: {merchantData.email}</p>
+            {/* <p>Phone: {merchantData.phone}</p> */}
             {/* Display other user data as needed */}
           </div>
         ) : (
@@ -26,4 +26,4 @@ const MyProfile = () => {
   );
 };
 
-export default MyProfile;
+export default ProfileMerchant;

@@ -15,8 +15,13 @@ import { FoodContext } from '../../Context/FoodContext';
 const Home = () => {
   
   const { isLogin, mLogin } = useContext(FoodContext);
-  console.log(isLogin && "User logged in");
-  console.log(mLogin && "Merchant logged in");
+
+  if(isLogin){
+    console.log("User logged in");
+  }
+  if(mLogin){
+    console.log("Merchant logged in");
+  }
 
   return (
     <>
