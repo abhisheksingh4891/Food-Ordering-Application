@@ -34,7 +34,7 @@ const Login = () => {
           setUser(email);
           setIsLogin(true);
           setUserData(result.data.user);
-          console.log("Received user data:", result.data.user);
+          // console.log("Received user data:", result.data.user);
 
           window.localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 

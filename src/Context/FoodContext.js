@@ -18,6 +18,8 @@ const FoodContextProvider = (props) => {
   const [user, setUser] = useState('');
   const [userData, setUserData] = useState([]);
 
+  console.log(userData);
+
   // const handleLogin = async (email, password) => {
   //   try {
   //     const response = await axios.post(`${baseURL}/login`, { email, password });
