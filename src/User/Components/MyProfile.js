@@ -1,4 +1,4 @@
-  import React, { useContext, useState } from "react";
+  import React, { useContext } from "react";
   import Navbar from "./Navbar";
   import { FoodContext } from "../../Context/FoodContext";
   import { Link } from "react-router-dom";
@@ -6,7 +6,7 @@
 
   const MyProfile = () => {
     const { userData, isLogin } = useContext(FoodContext);
-    const [updatedUserData, setUpdatedUserData] = useState(userData);
+    // const [userData, setUpdatedUserData] = useState(userData);
 
     // const handleChange = (e) => {
     //   const { name, value } = e.target;
@@ -64,7 +64,7 @@
                           <input
                             type="text"
                             name="first"
-                            value={updatedUserData.first}
+                            value={userData.first}
                             // onChange={handleChange}
                             className="form-control"
                           />
@@ -79,7 +79,7 @@
                           <input
                             type="text"
                             name="last"
-                            value={updatedUserData.last}
+                            value={userData.last}
                             // onChange={handleChange}
                             className="form-control"
                           />
@@ -94,7 +94,7 @@
                           <input
                             type="email"
                             name="email"
-                            value={updatedUserData.email}
+                            value={userData.email}
                             // onChange={handleChange}
                             className="form-control"
                           />
@@ -109,7 +109,7 @@
                           <input
                             type="text"
                             name="phone"
-                            value={updatedUserData.phone}
+                            value={userData.phone}
                             // onChange={handleChange}
                             className="form-control"
                           />

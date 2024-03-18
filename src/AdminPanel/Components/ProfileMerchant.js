@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Navbar from './NavbarAdmin';
 import { FoodContext } from '../../Context/FoodContext';
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import bg1 from '../../Assets/bg5.jpg'
 const ProfileMerchant = () => {
 
   const { merchantData, mLogin } = useContext(FoodContext);
-  const [updatedUserData, setUpdatedUserData] = useState(merchantData);
+  // const [merchantData, setUpdatedUserData] = useState(merchantData);
 
   // const handleChange = (e) => {
   //   const { name, value } = e.target;
@@ -65,7 +65,7 @@ const ProfileMerchant = () => {
                         <input
                           type="text"
                           name="first"
-                          value={updatedUserData.first}
+                          value={merchantData.first}
                           // onChange={handleChange}
                           className="form-control"
                         />
@@ -80,7 +80,7 @@ const ProfileMerchant = () => {
                         <input
                           type="text"
                           name="last"
-                          value={updatedUserData.last}
+                          value={merchantData.last}
                           // onChange={handleChange}
                           className="form-control"
                         />
@@ -95,7 +95,7 @@ const ProfileMerchant = () => {
                         <input
                           type="email"
                           name="email"
-                          value={updatedUserData.email}
+                          value={merchantData.email}
                           // onChange={handleChange}
                           className="form-control"
                         />
@@ -110,7 +110,7 @@ const ProfileMerchant = () => {
                         <input
                           type="text"
                           name="phone"
-                          value={updatedUserData.phone}
+                          value={merchantData.phone}
                           // onChange={handleChange}
                           className="form-control"
                         />
