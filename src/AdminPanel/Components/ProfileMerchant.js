@@ -9,13 +9,13 @@ const ProfileMerchant = () => {
   const { merchantData, mLogin } = useContext(FoodContext);
   const [updatedUserData, setUpdatedUserData] = useState(merchantData);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUpdatedUserData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setUpdatedUserData((prevState) => ({
+  //     ...prevState,
+  //     [name]: value,
+  //   }));
+  // };
 
   return (
     <div
@@ -66,7 +66,7 @@ const ProfileMerchant = () => {
                           type="text"
                           name="first"
                           value={updatedUserData.first}
-                          onChange={handleChange}
+                          // onChange={handleChange}
                           className="form-control"
                         />
                       </div>
@@ -81,7 +81,7 @@ const ProfileMerchant = () => {
                           type="text"
                           name="last"
                           value={updatedUserData.last}
-                          onChange={handleChange}
+                          // onChange={handleChange}
                           className="form-control"
                         />
                       </div>
@@ -96,7 +96,7 @@ const ProfileMerchant = () => {
                           type="email"
                           name="email"
                           value={updatedUserData.email}
-                          onChange={handleChange}
+                          // onChange={handleChange}
                           className="form-control"
                         />
                       </div>
@@ -111,18 +111,18 @@ const ProfileMerchant = () => {
                           type="text"
                           name="phone"
                           value={updatedUserData.phone}
-                          onChange={handleChange}
+                          // onChange={handleChange}
                           className="form-control"
                         />
                       </div>
-                      <div className="pt-2 mb-4">
+                      {/* <div className="pt-2 mb-4">
                         <button
                           className="btn btn-success btn-lg btn-block"
                           type="submit"
                         >
                           Update
                         </button>
-                      </div>
+                      </div> */}
                       <Link className="text-danger fw-bold" to="/">
                         Return to Home
                       </Link>
