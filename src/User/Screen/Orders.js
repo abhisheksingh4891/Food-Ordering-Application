@@ -15,6 +15,15 @@ const Orders = () => {
       <Navbar />
       <div className="container-fluid py-5 text-white">
         <h1 className="text-center mt-5"><u>My Orders</u></h1>
+        {
+          cartItems.length === 0 ? 
+          (
+            <div className="">
+              Your have not ordered anything yet!
+            </div>
+          ):
+          (
+
         <div className="container-fluid d-flex justify-content-center align-items-center py-2 text-white">
         {/* Check if the user has proceeded to pay */}
         {proceedToPay && (
@@ -39,6 +48,8 @@ const Orders = () => {
           </div>
         )}
         </div>
+          )
+        }
       </div>
     </div>
   );
