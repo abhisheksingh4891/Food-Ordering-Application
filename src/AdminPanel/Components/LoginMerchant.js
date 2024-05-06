@@ -29,14 +29,14 @@ const LoginMerchant = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios.post(`${baseURL}/loginmerchant`, { email, password })
-      .then(result => {
-        console.log(result);
-        if (result.data === "Password is incorrect...") {
-        } else {
-          setUser(email);
-          setMLogin(true);
+    .then(result => {
+      console.log(result);
+      if (result.data === "Password is incorrect...") {
+      } else {
+        setUser(email);
+        setMLogin(true);
           setMerchantData(result.data.user);
-          console.log("Received user data:", result.data.user);
+          // console.log("Received user data:", result.data.user);
           
           localStorage.setItem("merchantLogin", true);
           setShowSuccessModal(true); 
@@ -46,12 +46,14 @@ const LoginMerchant = () => {
           }, 800)
         } 
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.error("Login error:", err);
       // alert("Wrong credentials! Please try again..")
       setShowWrongModal(true); 
       setTimeout(() => {
         setShowWrongModal(false); 
       }, 800)
+    });
     };
     
     
