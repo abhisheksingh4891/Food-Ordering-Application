@@ -20,9 +20,9 @@ const Navbar = () => {
     setShowLogoutModal(true); 
     setTimeout(() => {
       localStorage.removeItem("isLoggedIn");
-      localStorage.removeItem("profile");
       setShowLogoutModal(false); 
       navigate('/login');
+      localStorage.removeItem("profile");
       // window.location.href = "/login";
     }, 800);
     setIsLogin(false);
