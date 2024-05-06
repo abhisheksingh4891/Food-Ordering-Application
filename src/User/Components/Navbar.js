@@ -13,18 +13,19 @@ const Navbar = () => {
     if (isLoggedIn) {
       setIsLogin(true);
     }
-  });
+  },[setIsLogin]);
 
   const navigate = useNavigate(); 
   const handleLogout = () => {
     setShowLogoutModal(true); 
-    localStorage.removeItem("isLoggedIn");
-    setIsLogin(false);
     setTimeout(() => {
+      localStorage.removeItem("isLoggedIn");
+      localStorage.removeItem("profile");
       setShowLogoutModal(false); 
       navigate('/login');
       // window.location.href = "/login";
     }, 800);
+    setIsLogin(false);
   };
 
   return (

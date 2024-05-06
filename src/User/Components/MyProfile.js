@@ -1,20 +1,20 @@
-  import React, { useContext } from "react";
-  import Navbar from "./Navbar";
-  import { FoodContext } from "../../Context/FoodContext";
-  import { Link } from "react-router-dom";
-  import bg1 from '../../Assets/bg5.jpg';
+import React, { useContext, useEffect } from "react";
+import Navbar from "./Navbar";
+import { FoodContext } from "../../Context/FoodContext";
+import { Link } from "react-router-dom";
+import bg1 from '../../Assets/car2.jpg';
+
 
   const MyProfile = () => {
-    const { userData, isLogin } = useContext(FoodContext);
-    // const [userData, setUpdatedUserData] = useState(userData);
+    const { userData, isLogin, setUserData} = useContext(FoodContext);
 
-    // const handleChange = (e) => {
-    //   const { name, value } = e.target;
-    //   setUpdatedUserData((prevState) => ({
-    //     ...prevState,
-    //     [name]: value,
-    //   }));
-    // };
+    useEffect(() => {
+      const savedProfile = localStorage.getItem('profile');
+        if (savedProfile) {
+          setUserData(JSON.parse(savedProfile));
+        }
+      },[setUserData]);
+    
 
     return (
       <div
@@ -33,7 +33,7 @@
               className=""
               style={{
                 borderRadius: "1rem",
-                backgroundColor: "rgba(255, 255, 255, 0.5)",
+                backgroundColor: "rgba(255, 255, 255, 0.6)",
               }}
             >
               <div className="row g-0 mt-5">

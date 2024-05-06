@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Navbar from './NavbarAdmin';
 import { FoodContext } from '../../Context/FoodContext';
 import { Link } from 'react-router-dom';
@@ -6,16 +6,14 @@ import bg1 from '../../Assets/bg5.jpg'
 
 const ProfileMerchant = () => {
 
-  const { merchantData, mLogin } = useContext(FoodContext);
-  // const [merchantData, setUpdatedUserData] = useState(merchantData);
-
-  // const handleChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setUpdatedUserData((prevState) => ({
-  //     ...prevState,
-  //     [name]: value,
-  //   }));
-  // };
+  const { merchantData, mLogin, setMerchantData } = useContext(FoodContext);
+  
+  useEffect(() => {
+    const savedProfile = localStorage.getItem('profile');
+      if (savedProfile) {
+        setMerchantData(JSON.parse(savedProfile));
+      }
+    },[setMerchantData]);
 
   return (
     <div
@@ -34,7 +32,7 @@ const ProfileMerchant = () => {
             className=""
             style={{
               borderRadius: "1rem",
-              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              backgroundColor: "rgba(255, 255, 255, 0.6)",
             }}
           >
             <div className="row g-0 mt-5">

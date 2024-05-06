@@ -13,11 +13,12 @@ const NavbarAdmin = () => {
     if (merchantLogin) {
       setMLogin(true);
     }
-  });
+  },[setMLogin]);
   
   const navigate = useNavigate();
   const handleLogout = () => {
-    window.localStorage.removeItem("merchantLogin");
+    localStorage.removeItem("merchantLogin");
+    localStorage.removeItem("profile");
     setMLogin(false);
     setShowLogoutModal(true); 
     setTimeout(() => {

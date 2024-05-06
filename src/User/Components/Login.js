@@ -36,19 +36,32 @@ const Login = () => {
           setUser(email);
           setIsLogin(true);
           setUserData(result.data.user);
-          // console.log("Received user data:", result.data.user);
-          
+
           localStorage.setItem("isLoggedIn", true);
-          setShowSuccessModal(true); 
-          setTimeout(() => {
-            setShowSuccessModal(false); 
-            navigate('/');
-          }, 800);
+          axios.get(`${baseURL}/user/profile`, {
+            params: { userId: result.data.userId }
+          })
+          .then(response => {
+            // console.log("User profile:", response.data);
+            localStorage.setItem('profile', JSON.stringify(response.data));
+            setUserData(response.data);
+            setShowSuccessModal(true); 
+            setTimeout(() => {
+              setShowSuccessModal(false); 
+              navigate('/');
+            }, 800);
+          })
+          .catch(error => {
+            console.error("Error fetching user profile:", error);
+            setShowWrongModal(true); 
+            setTimeout(() => {
+              setShowWrongModal(false); 
+            }, 800);
+          });
         } 
       })
       .catch(err => {
         console.error("Login error:", err);
-        // alert("Wrong credentials! Please try again..");
         setShowWrongModal(true); 
         setTimeout(() => {
           setShowWrongModal(false); 
