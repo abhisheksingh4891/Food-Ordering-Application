@@ -32,7 +32,7 @@ const Login = () => {
       .then(result => {
         console.log(result);
         if (result.data === "Password is incorrect...") {
-          windows.alert("Wrong credentials! Please try again..")
+          window.alert("Wrong credentials! Please try again..")
           setShowWrongModal(true); 
           setTimeout(() => {
             setShowWrongModal(false); 
