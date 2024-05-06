@@ -10,7 +10,6 @@ import axios from 'axios';
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
 const Login = () => {
-  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showSuccessModal, setShowSuccessModal] = useState(false); 
@@ -30,30 +29,32 @@ const Login = () => {
     e.preventDefault();
     axios.post(`${baseURL}/login`, { email, password })
       .then(result => {
-        console.log(result);
+        console.log("Login response:", result);
         if (result.data === "Password is incorrect...") {
-          window.alert("Wrong credentials! Please try again..")
-          setShowWrongModal(true); 
-          setTimeout(() => {
-            setShowWrongModal(false); 
-          }, 800)
+          console.log("Wrong password");
         } else {
           setUser(email);
           setIsLogin(true);
           setUserData(result.data.user);
           console.log("Received user data:", result.data.user);
-
+          
           localStorage.setItem("isLoggedIn", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
             setShowSuccessModal(false); 
-            navigate('/')
-          }, 800)
+            navigate('/');
+          }, 800);
         } 
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        console.error("Login error:", err);
+        // alert("Wrong credentials! Please try again..");
+        setShowWrongModal(true); 
+        setTimeout(() => {
+          setShowWrongModal(false); 
+        }, 800);
+      });
   };
-
 
   return (
     <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>

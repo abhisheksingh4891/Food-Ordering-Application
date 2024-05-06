@@ -32,17 +32,12 @@ const LoginMerchant = () => {
       .then(result => {
         console.log(result);
         if (result.data === "Password is incorrect...") {
-          alert("Wrong credentials! Please try again..")
-          setShowWrongModal(true); 
-          setTimeout(() => {
-            setShowWrongModal(false); 
-          }, 800)
         } else {
           setUser(email);
           setMLogin(true);
           setMerchantData(result.data.user);
           console.log("Received user data:", result.data.user);
-
+          
           localStorage.setItem("merchantLogin", true);
           setShowSuccessModal(true); 
           setTimeout(() => {
@@ -52,10 +47,15 @@ const LoginMerchant = () => {
         } 
       })
       .catch(err => console.log(err));
-  };
-
-
-  return (
+      // alert("Wrong credentials! Please try again..")
+      setShowWrongModal(true); 
+      setTimeout(() => {
+        setShowWrongModal(false); 
+      }, 800)
+    };
+    
+    
+    return (
     <div className="container-fluid py-3 pb-5" style={{backgroundImage:`url(${bg1})`, backgroundSize: 'cover', backgroundPosition: 'center', filter:'brightness(80%)'}}>
       <div className="row d-flex justify-content-center align-items-center mt-5">
         <div className="col col-xl-5">
