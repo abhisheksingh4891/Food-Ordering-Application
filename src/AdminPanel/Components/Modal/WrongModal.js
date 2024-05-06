@@ -12,7 +12,7 @@ const WrongModal = ({ show }) => {
             <button type="button" className="btn-close" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <p>Please enter correct password!</p>
+            <p>Please try again!</p>
           </div>
         </div>
       </div>
