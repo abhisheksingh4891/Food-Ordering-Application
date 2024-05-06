@@ -32,6 +32,7 @@ const Login = () => {
       .then(result => {
         console.log(result);
         if (result.data === "Password is incorrect...") {
+          alert("Wrong credentials! Please try again..")
           setShowWrongModal(true); 
           setTimeout(() => {
             setShowWrongModal(false); 
