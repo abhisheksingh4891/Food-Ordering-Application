@@ -49,7 +49,7 @@ const Card = () => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button className="btn btn-outline-success btn-success text-white" type="submit">Search</button>
+                    <button className="btn btn-outline-success btn-success text-white" type="submit" onClick={(e)=> e.preventDefault()}>Search</button>
                 </form>
             </div>
             <div className="container">
