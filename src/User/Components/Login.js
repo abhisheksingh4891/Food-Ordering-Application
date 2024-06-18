@@ -6,6 +6,7 @@ import SuccessModal from './Modal/SuccessModal';
 import WrongModal from './Modal/WrongModal';
 import bg1 from '../../Assets/bg5.jpg';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
 
@@ -25,9 +26,10 @@ const Login = () => {
     }
   }, [setIsLogin]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.post(`${baseURL}/login`, { email, password })
+    toast.info("Checking User Data")
+    await axios.post(`${baseURL}/login`, { email, password })
       .then(result => {
         console.log("Login response:", result);
         if (result.data === "Password is incorrect...") {
@@ -108,6 +110,7 @@ const Login = () => {
           </div>
         </div>
         {isLogin ? (<SuccessModal show={showSuccessModal} />) : (<WrongModal show={showWrongModal} />)}
+        <ToastContainer />
       </div>
     </div>
   );

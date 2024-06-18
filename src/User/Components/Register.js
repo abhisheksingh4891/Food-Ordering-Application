@@ -3,6 +3,7 @@ import {React, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import RegisterSuccessModal from './Modal/RegisterSuccessModal';
 import bg1 from '../../Assets/bg1.jpg'
+import { ToastContainer, toast } from 'react-toastify';
 // import WrongModal from './WrongModal';
 
 const baseURL = "https://food-ordering-backend-jwmu.onrender.com";
@@ -23,6 +24,7 @@ const Register = () => {
 
   const Submit = (e)=> {
     e.preventDefault();
+    toast.info("Checking User Data")
     axios.post(`${baseURL}/register`,{
       first, last, phone, email, password, confirmPassword
     })
@@ -106,6 +108,7 @@ const Register = () => {
       </div>
     </div>
     <RegisterSuccessModal show={showSuccessModal} />
+    <ToastContainer />
   </div>
 
   )
