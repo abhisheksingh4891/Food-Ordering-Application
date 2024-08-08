@@ -26,7 +26,7 @@ const Select = () => {
           )}
           {areCardsVisible && (
             <div className={`row justify-content-center align-items-center m-5 pb-3 fs-3 ${areCardsVisible ? 'fade-in' : ''}`}>
-              // <div className="col-lg-3 col-md-6 col-sm-12 mt-4 pt-1 mb-4 rounded">
+             {/*  // <div className="col-lg-3 col-md-6 col-sm-12 mt-4 pt-1 mb-4 rounded">
               //   <Link to="/loginmerchant" className="text-white text-decoration-none">
               //     <div className="card bg-danger">
               //       <div className="card-body d-flex flex-column justify-content-center align-items-center">
@@ -34,7 +34,7 @@ const Select = () => {
               //       </div>
               //     </div>
               //   </Link>
-              // </div>
+              // </div>  */}
               <div className="col-lg-3 col-md-6 col-sm-12 mt-4 pt-1 mb-4 rounded">
                 <Link to="/login" className="text-white text-decoration-none mb-3">
                   <div className="card bg-primary">
